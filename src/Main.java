@@ -10,8 +10,8 @@ void main() {
             "9780062316097", 3);
     Member member1 = new Member("Thorkild Hansen",65674);
 
-    book1.loanBook();
-    IO.print(member1);
-
-
+book1.loanBook(member1);
+IO.println(book1);
+book1.returnBook();
+IO.println(book1);
 }

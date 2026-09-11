@@ -9,6 +9,6 @@ public class Member {
 
     public String toString() {
         return String.format("""
-                %s  (%d) """, name, memberNR);
+                %s  (%d) \t""", name, memberNR);
     }
 }

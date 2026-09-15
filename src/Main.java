@@ -1,4 +1,5 @@
 void main() {
+    Library library = new Library();
     Book book1 = new Book("Allan B. Downey",
             "Think Java",
             "9781492072508", 1);
@@ -8,10 +9,18 @@ void main() {
     Book book3 = new Book("Yuval Noah Harari",
             "Sapiens",
             "9780062316097", 3);
-    Member member1 = new Member("Thorkild Hansen",65674);
 
-book1.loanBook(member1);
-IO.println(book1);
-book1.returnBook();
-IO.println(book1);
+    Member member1 = new Member("Thorkild Hansen", 65674);
+    Member member2 = new Member("Lise Andersen", 22532);
+    Member member3 = new Member("Peter Larsen", 33353);
+
+    library.addBook(book1);
+    library.addBook(book2);
+    library.addBook(book3);
+    library.addMember(member1);
+    library.addMember(member2);
+    library.addMember(member3);
+
+    IO.println(library.getBooks());
+
 }

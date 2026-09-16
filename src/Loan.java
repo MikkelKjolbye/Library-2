@@ -31,6 +31,6 @@ public class Loan {
     public String toString(){
         String status = isOverdue() ? "Afleveringsfrist er overskredet" : "";
         return String.format("""
-                %s \n%s Lånt: %s %s""",book,member,borrowedDate,status);
+                %s \n%s Lånt: %s %s\n""",book,member,borrowedDate,status);
     }
 }

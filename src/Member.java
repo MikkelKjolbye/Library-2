@@ -7,6 +7,10 @@ public class Member {
         this.memberNR = memberNR;
     }
 
+    public int getMemberId(){
+        return memberNR;
+    }
+
     public String toString() {
         return String.format("""
                 %s  (%d) \t""", name, memberNR);

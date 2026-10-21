@@ -16,9 +16,9 @@ void main() {
     library.addMember(member1);
     library.addMember(member2);
     library.addMember(member3);
-    library.addBook(book1);
-    library.addBook(book2);
-    library.addBook(book3);
+    library.addResource(book1);
+    library.addResource(book2);
+    library.addResource(book3);
 
     consoleUI.run();
 

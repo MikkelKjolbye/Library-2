@@ -1,18 +1,18 @@
 import java.util.ArrayList;
 
 public class Library {
-    private ArrayList<Book> books;
+    private ArrayList<Resource> resources;
     private ArrayList<Member> members;
     private ArrayList<Loan> loans;
 
     public Library() {
-        books = new ArrayList<>();
+        resources = new ArrayList<>();
         members = new ArrayList<>();
         loans = new ArrayList<>();
     }
 
-    public void addBook(Book book) {
-        books.add(book);
+    public void addResource(Resource resource) {
+        resources.add(resource);
     }
 
     public void addMember(Member member) {
@@ -23,18 +23,18 @@ public class Library {
         return loans;
     }
 
-    public ArrayList<Book> getBooks() {
-        return books;
+    public ArrayList<Resource> getResources() {
+        return resources;
     }
 
     public ArrayList<Member> getMembers() {
         return members;
     }
 
-    public Book getBook(int bookId) {
-        for (Book book : books) {
-            if (book.id() == bookId) {
-                return book;
+    public Resource getResource(String identifier) {
+        for (Resource resource : resources) {
+            if (Resource.identifier == identifier) {
+                return resource;
             }
         }
         return null;
@@ -49,28 +49,28 @@ public class Library {
         return null;
     }
 
-    public boolean loanBook(int bookId, int memberId) {
+    public boolean loanResource(String identifier, int memberId) {
         Member member = getMember(memberId);
-        Book book = getBook(bookId);
-        if (member == null || book == null) {
+        Resource resource = getResource(identifier);
+        if (member == null || resource == null) {
             return false;
 
         }
         for (Loan loan : loans) {
-            if (loan.getBook().id() == bookId) {
+            if (loan.getResource().getIdentifier().equals(identifier)) {
                 return false;
 
             }
         }
-        Loan newLoan = new Loan(book, member);
+        Loan newLoan = new Loan(resource, member);
         loans.add(newLoan);
         return true;
 
     }
 
-    public boolean returnBook(int bookId) {
+    public boolean returnResource(String identifier) {
         for (Loan loan : loans) {
-            if (loan.getBook().id() == bookId) {
+            if (loan.getResource().getIdentifier().equals(identifier)) {
                 loans.remove(loan);
                 return true;
             }
@@ -88,9 +88,9 @@ public class Library {
         return memberLoans;
     }
 
-    public void printBooks() {
-        for (Book book : books) {
-            IO.println(book);
+    public void printResource() {
+        for (Resource resource : resources) {
+            IO.println(resource);
         }
     }
 

@@ -1,18 +1,18 @@
 import java.time.LocalDate;
 
 public class Loan {
-    final private Book book;
+    final private Resource resource;
     final private Member member;
     final private LocalDate borrowedDate;
 
-    public Loan(Book book, Member member) {
-        this.book = book;
+    public Loan(Resource resource, Member member) {
+        this.resource = resource;
         this.member = member;
         this.borrowedDate = LocalDate.now();
     }
 
-    public Book getBook() {
-        return book;
+    public Resource getResource() {
+        return resource;
     }
 
     public Member getMember() {
@@ -31,6 +31,6 @@ public class Loan {
     public String toString(){
         String status = isOverdue() ? "Afleveringsfrist er overskredet" : "";
         return String.format("""
-                %s \n%s Lånt: %s %s\n""",book,member,borrowedDate,status);
+                %s \n%s Lånt: %s %s\n""",resource,member,borrowedDate,status);
     }
 }

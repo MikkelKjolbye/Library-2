@@ -14,7 +14,7 @@ public class ConsoleUI {
             int choice = Integer.parseInt(IO.readln("Indtast dit valg: "));
             switch (choice) {
                 case 1 -> borrowBook();
-                case 2 -> returnBook();
+                case 2 -> returnResource();
                 case 3 -> showLoans();
                 case 0 -> running = false;
                 default -> IO.println("Ugyldig indtastning, prøv igen");
@@ -44,9 +44,9 @@ public class ConsoleUI {
         IO.readln();
     }
 
-    private void returnBook() {
-        int bookId = Integer.parseInt(IO.readln("Indtast bogens ID: "));
-        boolean isReturned = library.returnBook(bookId);
+    private void returnResource() {
+        String identifier = (IO.readln("Indtast bogens ID: "));
+        boolean isReturned = library.returnResource(identifier);
         if (isReturned){
             IO.println("Bogen er returneret");
 

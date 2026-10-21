@@ -33,7 +33,7 @@ public class Library {
 
     public Resource getResource(String identifier) {
         for (Resource resource : resources) {
-            if (Resource.identifier == identifier) {
+            if (resource.getIdentifier().equals(identifier)) {
                 return resource;
             }
         }

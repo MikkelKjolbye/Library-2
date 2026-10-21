@@ -9,6 +9,6 @@ public class Book extends Resource {
     public String toString() {
         return String.format(
                 """ 
-                        Titel: %s. Forfatter: %s. ISBN: %s.""", getTitle(), getCreator(), getIdentifier());
+                        Title: %s. Author: %s. ISBN: %s.""", getTitle(), getCreator(), getIdentifier());
     }
 }

@@ -9,7 +9,7 @@ public class AudioBook extends Resource{
     public String toString(){
         return String.format(
         """
-            Titel: %s. Forfatter: %s. ISBN: %s Minute length: %d.  """ ,getTitle(), getCreator(), getIdentifier(), getMinuteLength());
+            Title: %s. Author: %s. ISBN: %s Minute length: %d.  """ ,getTitle(), getCreator(), getIdentifier(), getMinuteLength());
     }
     public int getMinuteLength(){
         return MinuteLength;

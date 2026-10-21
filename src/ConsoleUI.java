@@ -13,7 +13,7 @@ public class ConsoleUI {
             showMenu();
             int choice = Integer.parseInt(IO.readln("Indtast dit valg: "));
             switch (choice) {
-                case 1 -> borrowBook();
+                case 1 -> loanResource();
                 case 2 -> returnResource();
                 case 3 -> showLoans();
                 case 0 -> running = false;
@@ -34,16 +34,23 @@ public class ConsoleUI {
                 """);
     }
 
-    private void borrowBook() {
-        String identifier = IO.readln("Indtast bogens ID: ");
+    private void loanResource() {
+        String identifier = IO.readln("Indtast id på det du vil låne: ");
         int memberID = Integer.parseInt(IO.readln("Indtast dit medlemsnummer: "));
-        boolean isBorrowed = library.loanResource(identifier, memberID);
-        if (isBorrowed) {
-            IO.println("Lån oprettet");
-        } else IO.println("Tryk og start forfra");
-        IO.readln();
-    }
+        LoanResult status = library.loanResource(identifier, memberID);
+        if (status == LoanResult.NOT_MEMBER) {
+            IO.println("Medlemsnummeret findes ikke");
+        }
+        if (status == LoanResult.RESOURCE_NOT_FOUND) {
+            IO.println("Materialet findes ikke");
+        }
+        if (status == LoanResult.RESOURCE_NOT_AVAILABLE) {
+            IO.println("Materialet er allerede udlånt");
+        } else (status == LoanResult.LOANED) {
+            IO.println("Lånet er oprettet");
 
+        }
+    }
     private void returnResource() {
         String identifier = (IO.readln("Indtast bogens ID: "));
         boolean isReturned = library.returnResource(identifier);

@@ -9,7 +9,7 @@ public class VideoGame extends Resource{
     public String toString(){
         return String.format(
                 """
-                    Titel: %s. Forfatter: %s. ISBN: %s Console Platform: %s.  """ ,getTitle(), getCreator(), getIdentifier(), getPlatform());
+                    Title: %s. Creator: %s. ISBN: %s Console Platform: %s.  """ ,getTitle(), getCreator(), getIdentifier(), getPlatform());
     }
     public String getPlatform(){
         return platform;

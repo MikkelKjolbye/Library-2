@@ -49,22 +49,25 @@ public class Library {
         return null;
     }
 
-    public boolean loanResource(String identifier, int memberId) {
+    public LoanResult loanResource(String identifier, int memberId) {
         Member member = getMember(memberId);
         Resource resource = getResource(identifier);
-        if (member == null || resource == null) {
-            return false;
+        if (member == null) {
+            return LoanResult.NOT_MEMBER;
 
+        }
+        if (resource == null){
+            return LoanResult.RESOURCE_NOT_FOUND;
         }
         for (Loan loan : loans) {
             if (loan.getResource().getIdentifier().equals(identifier)) {
-                return false;
+                return LoanResult.RESOURCE_NOT_AVAILABLE;
 
             }
         }
         Loan newLoan = new Loan(resource, member);
         loans.add(newLoan);
-        return true;
+        return LoanResult.LOANED;
 
     }
 

@@ -1,18 +1,7 @@
-public class Member {
-    final String name;
-    final int memberNR;
-
-    public Member(String name, int memberNR) {
-        this.name = name;
-        this.memberNR = memberNR;
-    }
-
-    public int getMemberId(){
-        return memberNR;
-    }
-
+public record Member(String name, int memberNR) {
+    @Override
     public String toString() {
-        return String.format("""
+        return String.format("""                
                 %s  (%d) \t""", name, memberNR);
     }
 }

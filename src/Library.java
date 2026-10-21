@@ -1,9 +1,15 @@
 import java.util.ArrayList;
 
 public class Library {
-    private ArrayList<Book> books = new ArrayList<>();
-    private ArrayList<Member> members = new ArrayList<>();
-    private ArrayList<Loan> loans = new ArrayList<>();
+    private ArrayList<Book> books;
+    private ArrayList<Member> members;
+    private ArrayList<Loan> loans;
+
+    public Library() {
+        books = new ArrayList<>();
+        members = new ArrayList<>();
+        loans = new ArrayList<>();
+    }
 
     public void addBook(Book book) {
         books.add(book);
@@ -27,7 +33,7 @@ public class Library {
 
     public Book getBook(int bookId) {
         for (Book book : books) {
-            if (book.getBookId() == bookId) {
+            if (book.id() == bookId) {
                 return book;
             }
         }
@@ -36,7 +42,7 @@ public class Library {
 
     public Member getMember(int memberId) {
         for (Member member : members) {
-            if (member.getMemberId() == memberId) {
+            if (member.memberNR() == memberId) {
                 return member;
             }
         }
@@ -51,7 +57,7 @@ public class Library {
 
         }
         for (Loan loan : loans) {
-            if (loan.getBook().getBookId() == bookId) {
+            if (loan.getBook().id() == bookId) {
                 return false;
 
             }
@@ -64,7 +70,7 @@ public class Library {
 
     public boolean returnBook(int bookId) {
         for (Loan loan : loans) {
-            if (loan.getBook().getBookId() == bookId) {
+            if (loan.getBook().id() == bookId) {
                 loans.remove(loan);
                 return true;
             }
@@ -75,7 +81,7 @@ public class Library {
     public ArrayList<Loan> findLoansByMemberId(int memberId) {
         ArrayList<Loan> memberLoans = new ArrayList<>();
         for (Loan loan : loans) {
-            if (loan.getMember().getMemberId() == memberId) {
+            if (loan.getMember().memberNR() == memberId) {
                 memberLoans.add(loan);
             }
         }

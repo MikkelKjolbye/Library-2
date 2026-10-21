@@ -35,9 +35,9 @@ public class ConsoleUI {
     }
 
     private void borrowBook() {
-        String bookId = IO.readln("Indtast bogens ID: ");
+        String identifier = IO.readln("Indtast bogens ID: ");
         int memberID = Integer.parseInt(IO.readln("Indtast dit medlemsnummer: "));
-        boolean isBorrowed = library.loanResource(bookId, memberID);
+        boolean isBorrowed = library.loanResource(identifier, memberID);
         if (isBorrowed) {
             IO.println("Lån oprettet");
         } else IO.println("Tryk og start forfra");

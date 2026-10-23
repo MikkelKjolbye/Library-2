@@ -46,7 +46,7 @@ public class ConsoleUI {
         }
         if (status == LoanResult.RESOURCE_NOT_AVAILABLE) {
             IO.println("Materialet er allerede udlånt");
-        } else (status == LoanResult.LOANED) {
+        } else if (status == LoanResult.LOANED) {
             IO.println("Lånet er oprettet");
 
         }

@@ -1,4 +1,4 @@
-public class Resource {
+public abstract class Resource {
     private final String identifier;
     private final String title;
     private final String creator;

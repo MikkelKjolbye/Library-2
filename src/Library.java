@@ -1,14 +1,17 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Library {
     private ArrayList<Resource> resources;
     private ArrayList<Member> members;
     private ArrayList<Loan> loans;
+    private LoanPolicy loanPolicy;
 
-    public Library() {
+    public Library(LoanPolicy loanPolicy) {
         resources = new ArrayList<>();
         members = new ArrayList<>();
         loans = new ArrayList<>();
+        this.loanPolicy=loanPolicy;
     }
 
     public void addResource(Resource resource) {
@@ -59,13 +62,18 @@ public class Library {
         if (resource == null){
             return LoanResult.RESOURCE_NOT_FOUND;
         }
+        if (!loanPolicy.canLoan()){
+            return LoanResult.NOT_PERMITTED;
+        }
+
         for (Loan loan : loans) {
             if (loan.getResource().getIdentifier().equals(identifier)) {
                 return LoanResult.RESOURCE_NOT_AVAILABLE;
 
             }
         }
-        Loan newLoan = new Loan(resource, member);
+        LocalDate borrowedDate = LocalDate.now();
+        Loan newLoan = new Loan(resource, member, borrowedDate, loanPolicy.calculateDueDate(borrowedDate));
         loans.add(newLoan);
         return LoanResult.LOANED;
 

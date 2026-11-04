@@ -7,6 +7,7 @@ public abstract class Resource implements Comparable<Resource> {
         this.identifier = identifier;
         this.title = title;
         this.creator = creator;
+
     }
     public String getIdentifier(){
         return identifier;

@@ -9,7 +9,7 @@ public class testMember {
         Member member = new Member("Mikkel", 100);
 
         //act
-        int memberNR = member.getMemberNR();
+        int memberNR = member.getMemberID();
 
         //
         assertEquals(100, memberNR);

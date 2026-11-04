@@ -1,10 +1,9 @@
 public class Book extends Resource {
 
-    public Book(String identifier, String title, String creator){
-        super(identifier,title,creator);
+    public Book(String identifier, String title, String creator) {
+        super(identifier, title, creator);
 
     }
-
 
     @Override
     public String toString() {
@@ -12,4 +11,10 @@ public class Book extends Resource {
                 """ 
                         Title: %s. Author: %s. ISBN: %s.""", getTitle(), getCreator(), getIdentifier());
     }
+   /* @Override
+    public int compareTo(Resource other) {
+        return this.getIdentifier().compareTo(other.getIdentifier());
+    }*/
+
 }
+

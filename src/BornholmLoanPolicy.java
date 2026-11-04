@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class BornholmLoanPolicy implements LoanPolicy {
+ public class BornholmLoanPolicy implements LoanPolicy {
 
     private Resource resourceToLoan;
 

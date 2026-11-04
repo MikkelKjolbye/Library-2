@@ -46,7 +46,7 @@ public class Library {
 
     public Member getMember(int memberId) {
         for (Member member : members) {
-            if (member.memberNR() == memberId) {
+            if (member.memberID() == memberId) {
                 return member;
             }
         }
@@ -63,7 +63,7 @@ public class Library {
         if (resource == null) {
             return LoanResult.RESOURCE_NOT_FOUND;
         }
-        if (!loanPolicy.canLoan()){
+        if (!loanPolicy.canLoan()) {
             return LoanResult.NOT_PERMITTED;
         }
 
@@ -93,7 +93,7 @@ public class Library {
     public List<Loan> findLoansByMemberId(int memberId) {
         List<Loan> memberLoans = new ArrayList<>();
         for (Loan loan : loans) {
-            if (loan.getMember().memberNR() == memberId) {
+            if (loan.getMember().memberID() == memberId) {
                 memberLoans.add(loan);
             }
         }
@@ -110,5 +110,6 @@ public class Library {
         for (Member member : members) {
             IO.println(member);
         }
+
     }
 }

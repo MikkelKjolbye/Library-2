@@ -23,6 +23,10 @@ public class Library {
         members.add(member);
     }
 
+    public void addLoan(Loan loan) {
+        loans.add(loan);
+    }
+
     public List<Loan> getLoans() {
         return loans;
     }

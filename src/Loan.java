@@ -23,6 +23,9 @@ public class Loan implements Comparable<Loan>{
     public LocalDate getBorrowedDate(){
         return borrowedDate;
     }
+    public LocalDate getDueDate(){
+        return dueDate;
+    }
 
 
     public boolean isOverdue() {
